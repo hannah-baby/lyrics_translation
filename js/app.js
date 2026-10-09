@@ -18,7 +18,7 @@ function cover(post) {
 function render() {
   const query = search.value.trim().toLocaleLowerCase();
   const visible = posts.filter(post => (selected === categories[0] || post.category === selected) && `${post.title} ${post.subtitle} ${post.excerpt}`.toLocaleLowerCase().includes(query));
-  cards.innerHTML = visible.map(post => `<a class="card" href="#post/${encodeURIComponent(post.id)}"><div class="card-cover">${cover(post)}<span class="cover-label">HANNAH’S COLLECTION</span></div><div class="card-body"><div class="meta"><span class="tag">${escape(post.category)}</span><span>${post.minutes} 分鐘閱讀</span></div><h3>${escape(post.title)}</h3><p class="subtitle">${escape(post.subtitle)}</p><p class="excerpt">${escape(post.excerpt)}</p><div class="card-bottom"><time datetime="${post.date}">${post.date.replaceAll('-', '.')}</time><span class="read-more">閱讀文章 ↗</span></div></div></a>`).join('');
+  cards.innerHTML = visible.map(post => `<a class="card" href="#post/${encodeURIComponent(post.id)}"><div class="card-cover">${cover(post)}<span class="cover-label">漢娜的收藏</span></div><div class="card-body"><div class="meta"><span class="tag">${escape(post.category)}</span><span>${post.minutes} 分鐘閱讀</span></div><h3>${escape(post.title)}</h3><p class="subtitle">${escape(post.subtitle)}</p><p class="excerpt">${escape(post.excerpt)}</p><div class="card-bottom"><time datetime="${post.date}">${post.date.replaceAll('-', '.')}</time><span class="read-more">閱讀文章 ↗</span></div></div></a>`).join('');
   document.querySelector('#count').textContent = String(visible.length).padStart(2, '0');
   document.querySelector('#empty').hidden = visible.length !== 0;
   document.querySelector('#status').textContent = `顯示 ${visible.length} 篇文章`;
@@ -32,10 +32,10 @@ function route() {
   document.querySelector('#collection').hidden = isArticle;
   document.querySelector('.welcome').hidden = isArticle;
   reader.hidden = !isArticle;
-  if (!isArticle) { document.title = 'Hannah的翻譯小窩'; return; }
+  if (!isArticle) { document.title = '漢娜的翻譯小窩'; return; }
   const post = byId.get(location.hash.slice(6));
   reader.innerHTML = `<a class="back-link" href="#collection">← 回到文章收藏</a>` + (post ? `<p class="eyebrow">${escape(post.category)} · ${post.date}</p><h1 id="article-title" tabindex="-1">${escape(post.title)}</h1><p class="subtitle">${escape(post.subtitle)}</p>${cover(post)}${post.body.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}` : '<h1 id="article-title" tabindex="-1">找不到這篇文章</h1><p>請回到文章收藏，選擇其他文章。</p>');
-  document.title = `${post?.title || '找不到文章'}｜Hannah的翻譯小窩`;
+  document.title = `${post?.title || '找不到文章'}｜漢娜的翻譯小窩`;
   document.querySelector('#article-title').focus({ preventScroll: true });
   reader.scrollIntoView({ block: 'start' });
 }

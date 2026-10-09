@@ -43,3 +43,14 @@ In repository Settings > Pages, select Deploy from a branch, `main`, and `/ (roo
 **Removed:** Nothing.
 
 **Breaking Changes:** None.
+
+### v0.1.1 — 2026-10-09
+**Changed:** Use the Traditional Chinese owner name in visible branding, page titles, metadata, card labels, and footer.
+
+**Fixed:** None.
+
+**Added:** None.
+
+**Removed:** None.
+
+**Breaking Changes:** None.
