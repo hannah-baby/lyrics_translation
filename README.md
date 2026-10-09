@@ -16,7 +16,7 @@ Open http://localhost:8000. ES modules require HTTP; do not open index.html dire
 
 Edit `js/posts.js` to add articles and categories. Each article has a unique URL-safe `id`, `category`, `title`, `subtitle`, `excerpt`, ISO `date`, numeric `minutes`, local `cover` path, and a `body` array of paragraphs. Keep category names synchronized with `categories`. All current articles are explicitly marked original demonstration content, not real translations.
 
-Place new covers in `assets/`. The six SVG covers were created for this design. `assets/hero.jpg` is cropped from the reference screenshot supplied by the site owner; replace it with the final authorized cover before public launch.
+Place new covers in `assets/`. The six SVG collage covers and the decorative SVG assets were created for V2. `assets/hero.jpg` is retained from V1 but is not displayed in V2. The V2 banner uses selectable HTML lettering and original SVG decorations.
 
 ## Behavior and complexity
 
@@ -54,3 +54,25 @@ In repository Settings > Pages, select Deploy from a branch, `main`, and `/ (roo
 **Removed:** None.
 
 **Breaking Changes:** None.
+
+## Design versions
+
+- `v1` preserves commit `4048db0`, the original sage and cream design.
+- `v2` is the production Burn Book inspired redesign on `main`.
+- `styles.css` provides the shared layout; `burn-book.css` provides the V2 visual overrides.
+- No runtime version selector is included. Git tags preserve both complete versions.
+
+## Changelog
+
+### v0.2.0 — 2026-10-09
+**Changed:** Production appearance to pink paper, cutout typography, doodles, lipstick decoration, taped article cards, and paper-tab navigation. Banner reads Hann's translation.
+
+**Fixed:** None.
+
+**Added:** Original vector covers, paper texture and doodles, responsive collage banner, V1 archive tag, and V2 release tag.
+
+**Removed:** The V1 painting banner from the active design.
+
+**Breaking Changes:** None. Article data, URLs, category filtering, search, and reading behavior are preserved.
+
+**Validation:** Desktop and mobile browser review; six cards, category/search results, article links and reload, empty and missing-article states, no mobile overflow, and no JavaScript errors.
