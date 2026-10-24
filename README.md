@@ -14,7 +14,7 @@ Open http://localhost:8000. ES modules require HTTP; do not open index.html dire
 
 ## Content
 
-Edit `js/posts.js` to add articles and categories. Each article has a unique URL-safe `id`, `category`, `title`, `subtitle`, `excerpt`, ISO `date`, numeric `minutes`, local `cover` path, and a `body` array of paragraphs. Keep category names synchronized with `categories`. All current articles are explicitly marked original demonstration content, not real translations.
+Edit `js/posts.js` to add articles and categories. Each article has a unique URL-safe `id`, `category`, `title`, `subtitle`, `excerpt`, ISO `date`, numeric `minutes`, local `cover` path, and a `body` array of paragraphs. Keep category names synchronized with `categories`. The newest article contains user-supplied bilingual lyrics; the six original samples remain explicitly labeled demonstration content.
 
 Place new covers in `assets/`. The six SVG collage covers and the decorative SVG assets were created for V2. `assets/hero.jpg` is retained from V1 but is not displayed in V2. The V2 banner uses selectable HTML lettering and original SVG decorations.
 
@@ -76,3 +76,14 @@ In repository Settings > Pages, select Deploy from a branch, `main`, and `/ (roo
 **Breaking Changes:** None. Article data, URLs, category filtering, search, and reading behavior are preserved.
 
 **Validation:** Desktop and mobile browser review; six cards, category/search results, article links and reload, empty and missing-article states, no mobile overflow, and no JavaScript errors.
+
+### v0.2.1 — 2026-10-25
+**Changed:** Homepage notice now distinguishes published content from samples.
+
+**Fixed:** None.
+
+**Added:** User-supplied Temper City Reverse Psychology article, original typographic cover, and optional bilingual sections preserving all 17 supplied pairs. Rendering is O(l) in lyric lines.
+
+**Removed:** None.
+
+**Breaking Changes:** None; paragraph-only articles remain supported.

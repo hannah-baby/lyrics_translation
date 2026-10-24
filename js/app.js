@@ -14,6 +14,16 @@ function cover(post) {
   return `<img src="${escape(post.cover)}" alt="" loading="lazy" width="800" height="480">`;
 }
 
+/**
+ * Render optional bilingual sections with escaped text in O(l) time and space.
+ * Args: post (object), optional sections containing headings and [English, Chinese] pairs.
+ * Returns: HTML string; empty when sections are absent. Raises: none for valid post data.
+ * Notes: Preserves existing paragraph-only articles and performs no DOM mutations.
+ */
+function lyrics(post) {
+  return (post.sections || []).map(section => `<section class="lyrics-section"><h2>${escape(section.heading)}</h2>${section.lines.map(([original, translation]) => `<div class="lyric-pair"><p lang="en">${escape(original)}</p><p lang="zh-Hant">${escape(translation)}</p></div>`).join('')}</section>`).join('');
+}
+
 /** Render current category/search results in O(n) time and O(n) output space. */
 function render() {
   const query = search.value.trim().toLocaleLowerCase();
@@ -34,7 +44,7 @@ function route() {
   reader.hidden = !isArticle;
   if (!isArticle) { document.title = '漢娜的翻譯小窩'; return; }
   const post = byId.get(location.hash.slice(6));
-  reader.innerHTML = `<a class="back-link" href="#collection">← 回到文章收藏</a>` + (post ? `<p class="eyebrow">${escape(post.category)} · ${post.date}</p><h1 id="article-title" tabindex="-1">${escape(post.title)}</h1><p class="subtitle">${escape(post.subtitle)}</p>${cover(post)}${post.body.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}` : '<h1 id="article-title" tabindex="-1">找不到這篇文章</h1><p>請回到文章收藏，選擇其他文章。</p>');
+  reader.innerHTML = `<a class="back-link" href="#collection">← 回到文章收藏</a>` + (post ? `<p class="eyebrow">${escape(post.category)} · ${post.date}</p><h1 id="article-title" tabindex="-1">${escape(post.title)}</h1><p class="subtitle">${escape(post.subtitle)}</p>${cover(post)}${post.body.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}${lyrics(post)}` : '<h1 id="article-title" tabindex="-1">找不到這篇文章</h1><p>請回到文章收藏，選擇其他文章。</p>');
   document.title = `${post?.title || '找不到文章'}｜漢娜的翻譯小窩`;
   document.querySelector('#article-title').focus({ preventScroll: true });
   reader.scrollIntoView({ block: 'start' });

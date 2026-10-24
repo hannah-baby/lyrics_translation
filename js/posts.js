@@ -1,6 +1,8 @@
-/** Editable sample articles. All prose is original placeholder content, not lyrics. */
+import { reversePsychology } from './reverse-psychology.js';
+/** Published articles followed by the original explicitly labeled sample articles. */
 export const categories = ["全部文章", "歌詞翻譯", "文字翻譯", "翻譯筆記"];
 export const posts = [
+  reversePsychology,
   { id: "quiet-morning", category: "歌詞翻譯", title: "在旋律裡，遇見一個安靜的早晨", subtitle: "A quiet morning", excerpt: "有些旋律不急著說完故事，只是陪我們慢慢醒來。這裡將收藏那些想反覆聆聽的歌。", date: "2026-10-09", minutes: 3, cover: "assets/cover-1.svg", body: ["這是一篇版型示範文章，並非已完成的歌詞翻譯。", "未來這裡會放入作品介紹、原文與翻譯，以及一些想與你分享的文字。現在，先為喜歡的旋律留一個位置。"] },
   { id: "blue-hour", category: "歌詞翻譯", title: "寫給黃昏的一封信", subtitle: "Letters at the blue hour", excerpt: "當天空慢慢變藍，白天沒說出口的話，好像都能交給一首歌。", date: "2026-10-08", minutes: 4, cover: "assets/cover-2.svg", body: ["這是一篇示範文章，尚未放入正式歌詞。", "這個位置可以用來記錄歌曲背景、翻譯選字與聆聽時的感受。"] },
   { id: "between-lines", category: "文字翻譯", title: "字裡行間，留一點溫柔", subtitle: "Between the lines", excerpt: "不是每一句話都需要華麗的修飾。有時候，簡單的文字反而走得更遠。", date: "2026-10-07", minutes: 3, cover: "assets/cover-3.svg", body: ["這是文字翻譯分類的示範內容。", "未來可在此收錄短文、散文或訪談翻譯，並註明原作者與來源。"] },
